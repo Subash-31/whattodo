@@ -36,11 +36,12 @@ export class TaskModificationComponent {
   getTask() {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.currentTask = this.taskService.getTaskById(id);
+    console.log(" this.currentTask ", this.currentTask);
   }
 
   sendUpdateTask() {
     this.taskService.updateTask(this.currentTask!);
-    this.route.navigate([""]);
+    this.route.navigate(["/Home"]);
   }
 
 }

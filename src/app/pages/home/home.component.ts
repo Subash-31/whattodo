@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TaskService } from 'src/app/services/task/task.service';
 import { Task } from 'src/app/task';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,16 @@ export class HomeComponent {
   nonUrgentTaskExists: boolean = false;
   urgentTaskExists: boolean = false;
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private gettasklist: HomeService) { }
 
   ngOnInit() {
     this.todoList = this.getToDoList();
+    console.log("this.todoList", this.todoList);
     this.checkTasksPriority(this.todoList);
+    this.gettasklist.getlist().subscribe((data: any) => {
+      this.todoList = data.data.documents
+      console.log("data", data.data.documents);
+    });
   }
 
   getToDoList(): Task[] {
@@ -26,12 +32,12 @@ export class HomeComponent {
   }
 
   checkTasksPriority(todoList: Task[]) {
-    if(todoList.map(item => item.isUrgent).includes(true)) {
+    if (todoList.map(item => item.isUrgent).includes(true)) {
       this.urgentTaskExists = true;
     } else {
       this.urgentTaskExists = false;
     }
-    if(todoList.map(item => item.isUrgent).includes(false)) {
+    if (todoList.map(item => item.isUrgent).includes(false)) {
       this.nonUrgentTaskExists = true;
     } else {
       this.nonUrgentTaskExists = false;
@@ -44,9 +50,12 @@ export class HomeComponent {
     this.checkTasksPriority(this.todoList);
   }
 
-  filterCategories(tasklist : Task[]) {
+  filterCategories(tasklist: Task[]) {
     this.todoList = tasklist;
     this.checkTasksPriority(this.todoList)
+  }
+  getData() {
+
   }
 
 }
