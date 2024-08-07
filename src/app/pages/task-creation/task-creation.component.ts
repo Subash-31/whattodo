@@ -21,7 +21,7 @@ export class TaskCreationComponent {
   }
 
   isCompleted() {
-    if(this.currentTask!.content.length > 0 && this.currentTask?.category !== null) {
+    if (this.currentTask!.content.length > 0 && this.currentTask?.category !== null) {
       this.isFormCompleted = true;
     } else {
       this.isFormCompleted = false;
@@ -39,7 +39,7 @@ export class TaskCreationComponent {
 
   validateTask() {
     this.taskService.addToList(this.currentTask!);
-    this.route.navigate([""]);
+    this.route.navigate(["/Home"]);
   }
 
 }
