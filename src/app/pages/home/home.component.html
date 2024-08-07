@@ -6,7 +6,7 @@
   <div class="fade-animation" *ngIf="todoList.length > 0; else emptyToDoList">
 
     <!-- Tâches urgentes -->
-    <p *ngIf="this.urgentTaskExists"> Urgent tasks ⚠️</p>
+    <p *ngIf="this.urgentTaskExists">⚠️ Urgent tasks</p>
     <ul>
       <ng-container *ngFor="let task of todoList">
         <li *ngIf="task.isUrgent">
@@ -14,7 +14,7 @@
               stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
               <polyline points="20 6 9 17 4 12" />
             </svg></button>
-          <a routerLink="/update-task/{{task.id}}">
+          <a routerLink="/update-task/{{task['$id']}}">
             {{task.category! | categoryEmoji}}
             {{task.content}}
           </a>
@@ -23,7 +23,7 @@
     </ul>
 
     <!-- Tâches non-urgentes -->
-    <p *ngIf="this.nonUrgentTaskExists"> Other tasks</p>
+    <p *ngIf="this.nonUrgentTaskExists">🌸 Other tasks</p>
     <ul>
       <ng-container *ngFor="let task of todoList">
         <li *ngIf="!task.isUrgent">

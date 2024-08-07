@@ -116,7 +116,7 @@ export class TaskService {
     return allTasks.filter(task => task.doneDate === null);
   }
 
-  getTaskById(id: number): Task | undefined {
+  getTaskById(id: any): Task | undefined {
     const toDoList = this.getToDos();
     return toDoList.find(task => task.id === id);
   }

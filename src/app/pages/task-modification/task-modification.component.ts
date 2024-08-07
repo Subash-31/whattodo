@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from 'src/app/services/task/task.service';
 import { Task } from 'src/app/task';
+import { HomeService } from '../home/home.service';
 
 @Component({
   selector: 'app-task-modification',
@@ -10,11 +11,12 @@ import { Task } from 'src/app/task';
 })
 export class TaskModificationComponent {
 
+
   currentTask?: Task;
 
   isFormCompleted: boolean = false;
 
-  constructor(private activatedRoute: ActivatedRoute, private taskService: TaskService, private route: Router) { }
+  constructor(private activatedRoute: ActivatedRoute, private taskService: TaskService, private route: Router, private list: HomeService) { }
 
   ngOnInit() {
     this.getTask();
@@ -34,9 +36,13 @@ export class TaskModificationComponent {
   }
 
   getTask() {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.currentTask = this.taskService.getTaskById(id);
-    console.log(" this.currentTask ", this.currentTask);
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.list.getlist().subscribe((data: any) => {
+      console.log("data", data.data.documents)
+      this.currentTask = data.data.documents.find((e: any) => e["$id"] == id);
+      console.log("this.currentTask", this.currentTask)
+    });
+
   }
 
   sendUpdateTask() {

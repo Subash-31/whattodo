@@ -10,7 +10,7 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent {
 
-  todoList: Task[] = [];
+  todoList: any[] = [];
 
   nonUrgentTaskExists: boolean = false;
   urgentTaskExists: boolean = false;
