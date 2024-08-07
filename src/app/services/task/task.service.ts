@@ -7,7 +7,8 @@ import { CategoryType, Task } from 'src/app/task';
 })
 export class TaskService {
 
-
+  constructor(private http: HttpClient) {
+  }
   /*
   CREATE
   **/
@@ -40,7 +41,12 @@ export class TaskService {
   addToList(newTask: Task): void {
     console.log("")
     newTask.id = this.generateId();
-    const toDoList = this.getToDos();
+    let data:any=[];
+    this.getlist().subscribe((e:any)=>{
+      data=e.data.documents
+    });
+
+    const toDoList = data;
     console.log("toDoList", toDoList);
     console.log("newTask", newTask);
     toDoList.push(newTask);
@@ -63,7 +69,7 @@ export class TaskService {
     currentTask.content = newContent;
   }
 
-  setAsDone(currentTask: Task): void {
+  setAsDone(currentTask: any): void {
     const toDoList = this.getToDos();
     const id = currentTask.id;
     const taskToFind = toDoList.find(task => task.id === id);
@@ -153,5 +159,7 @@ export class TaskService {
   saveToDos(tasks: Task[]): void {
     localStorage.setItem('todo', JSON.stringify(tasks));
   }
-
+  getlist() {
+    return this.http.post("https://project-unknown-api-88wq.onrender.com/list", { "id": 1 });
+  }
 }

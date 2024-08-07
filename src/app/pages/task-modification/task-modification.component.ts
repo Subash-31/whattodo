@@ -38,9 +38,7 @@ export class TaskModificationComponent {
   getTask() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.list.getlist().subscribe((data: any) => {
-      console.log("data", data.data.documents)
       this.currentTask = data.data.documents.find((e: any) => e["$id"] == id);
-      console.log("this.currentTask", this.currentTask)
     });
 
   }
