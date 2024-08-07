@@ -15,7 +15,12 @@ export class HomeComponent {
   nonUrgentTaskExists: boolean = false;
   urgentTaskExists: boolean = false;
 
-  constructor(private taskService: TaskService, private gettasklist: HomeService) { }
+  constructor(private taskService: TaskService, private gettasklist: HomeService) {
+    this.gettasklist.getlist().subscribe((data: any) => {
+      this.todoList = data.data.documents
+    });
+  }
+
 
   ngOnInit() {
     // this.todoList = this.getToDoList();
@@ -49,6 +54,7 @@ export class HomeComponent {
   }
 
   filterCategories(tasklist: Task[]) {
+    debugger
     this.todoList = tasklist;
     this.checkTasksPriority(this.todoList)
   }
