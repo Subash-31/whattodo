@@ -44,7 +44,10 @@ export class TaskModificationComponent {
   }
 
   sendUpdateTask() {
-    this.taskService.updateTask(this.currentTask!);
+    this.list.updateData(this.currentTask).subscribe((data: any) => {
+      console.log("data Updated");
+    })
+    // this.taskService.updateTask(this.currentTask!);
     this.route.navigate(["/Home"]);
   }
 
