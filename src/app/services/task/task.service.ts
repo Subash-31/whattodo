@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CategoryType, Task } from 'src/app/task';
 
@@ -6,7 +7,8 @@ import { CategoryType, Task } from 'src/app/task';
 })
 export class TaskService {
 
-  /* 
+
+  /*
   CREATE
   **/
   createNewTask(): Task {
@@ -23,7 +25,7 @@ export class TaskService {
       userId: 1,
       categoriesId: 1,
       deadlines: new Date(),
-      status: 'open',
+      status: 'to-do',
       deletedAt: null,
       tenant: '',
       createdAtSystem: new Date(),
@@ -36,13 +38,16 @@ export class TaskService {
   }
 
   addToList(newTask: Task): void {
+    console.log("")
     newTask.id = this.generateId();
     const toDoList = this.getToDos();
+    console.log("toDoList", toDoList);
+    console.log("newTask", newTask);
     toDoList.push(newTask);
     this.saveToDos(toDoList);
   }
 
-  /* 
+  /*
   UPDATE
   **/
   changeTaskCategory(currentTask: Task, categorySelected: string): void {
@@ -98,7 +103,7 @@ export class TaskService {
     }
   }
 
-  /* 
+  /*
   GET
   **/
   getDoneTasks(): Task[] {
@@ -148,4 +153,5 @@ export class TaskService {
   saveToDos(tasks: Task[]): void {
     localStorage.setItem('todo', JSON.stringify(tasks));
   }
+
 }

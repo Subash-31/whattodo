@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from 'src/app/services/task/task.service';
 import { Task } from 'src/app/task';
+import { TaskCreationService } from './task-creation.service';
 
 @Component({
   selector: 'app-task-creation',
@@ -14,7 +15,7 @@ export class TaskCreationComponent {
 
   isFormCompleted: boolean = false;
 
-  constructor(private taskService: TaskService, private route: Router) { }
+  constructor(private taskService: TaskService, private route: Router, private task: TaskCreationService) { }
 
   ngOnInit() {
     this.createNewTask();
@@ -38,7 +39,9 @@ export class TaskCreationComponent {
   }
 
   validateTask() {
-    this.taskService.addToList(this.currentTask!);
+    this.task.createData(this.currentTask!).subscribe((data: any) => {
+      this.taskService.addToList(this.currentTask!);
+    })
     this.route.navigate(["/Home"]);
   }
 

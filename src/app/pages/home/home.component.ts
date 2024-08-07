@@ -18,12 +18,10 @@ export class HomeComponent {
   constructor(private taskService: TaskService, private gettasklist: HomeService) { }
 
   ngOnInit() {
-    this.todoList = this.getToDoList();
-    console.log("this.todoList", this.todoList);
+    // this.todoList = this.getToDoList();
     this.checkTasksPriority(this.todoList);
     this.gettasklist.getlist().subscribe((data: any) => {
       this.todoList = data.data.documents
-      console.log("data", data.data.documents);
     });
   }
 
@@ -54,8 +52,6 @@ export class HomeComponent {
     this.todoList = tasklist;
     this.checkTasksPriority(this.todoList)
   }
-  getData() {
 
-  }
 
 }
