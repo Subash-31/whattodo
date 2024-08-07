@@ -1,4 +1,24 @@
-/* CATEGORIES BUTTONS */
+/* CATEGORIES SECTION */
+.all-categories-input {
+    display: flex;
+    gap: 5px;
+    position: relative;
+    margin-top: 40px; /* Adjust this value to add space at the top */
+    flex-wrap: wrap; /* Ensure categories wrap to a new line if needed */
+}
+
+.category-header {
+    width: 100%;
+    margin-bottom: 10px; /* Adjust space between header and categories */
+    font-size: 16px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the header text bold */
+}
+
+.radio-category-container {
+    position: relative;
+    display: flex;
+}
+
 .label-category {
     width: 41px;
     height: 41px;
@@ -12,35 +32,31 @@
     font-size: 20px;
     transition: all 0.2s;
 }
+
 .label-category:hover {
     background-color: var(--lightblue);
     transition: all 0.2s;
     cursor: pointer;
 }
+
 .input-category {
     width: 40px;
     height: 45px;
     opacity: 0;
 }
+
 .input-category:checked + .label-category {
     background-color: var(--lightblue);
 }
-.radio-category-container {
-    position: relative;
-    display: flex; /* Ensure all categories are displayed in a row */
-}
-.all-categories-input {
-    display: flex;
-    gap: 8px;
-    position: relative;
-    margin-top: 20px;
-}
+
 .all {
     font-size: 12px;
 }
+
 .filter-svg {
     width: 20px;
 }
+
 .category-name {
     display: none;
     position: absolute; /* Position it absolutely */
@@ -54,6 +70,7 @@
     border-radius: 4px;
     white-space: nowrap; /* Ensure text doesn't wrap */
 }
+
 .label-category:hover .category-name {
     display: inline-block;
 }
