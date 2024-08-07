@@ -5,3 +5,23 @@ section {
     justify-content: space-between;
     height: 85vh;
 }
+
+.blue-button {
+    background-color: #007bff; /* Adjust to your desired blue color */
+    color: white;
+    border: none;
+    border-radius: 5px; /* Optional: rounded corners */
+    padding: 12px 24px; /* Increase padding for larger button */
+    font-size: 18px; /* Larger font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.blue-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.blue-button:disabled {
+    background-color: #c0c0c0; /* Gray color for disabled state */
+    cursor: not-allowed;
+}
