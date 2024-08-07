@@ -1,4 +1,4 @@
-export type CategoryType = "shopping" | "health" | "work" | "bills" | "cleaning" | "other";
+export type CategoryType = "" | "health" | "work" | "bills" | "cleaning" | "other" | "food"|"exercise"|"entertainment"|"education"|"travel"|"social"|"finance"|"home"|"pets";
 
 export interface Task {
     id?: number;

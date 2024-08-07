@@ -11,7 +11,8 @@ export class FilterComponent {
 
   todoList: Task[] = [];
 
-  categoryType: string[] = ["shopping", "health", "work", "bills", "cleaning", "other"];
+  categoryType: string[] = ["shopping", "health", "work", "bills", "cleaning",  "food", "exercise", "entertainment", "education", "travel", "social", "finance", "home", "pets","others"];
+
 
   @Output() changeCategory = new EventEmitter();
 
