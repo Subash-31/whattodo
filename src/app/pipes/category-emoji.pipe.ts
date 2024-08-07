@@ -24,9 +24,6 @@ export class CategoryEmojiPipe implements PipeTransform {
       case 'cleaning':
         emoji = "🧼";
         break;
-      case 'other':
-        emoji = "🤷‍♀️";
-        break;
       case 'food':
         emoji = "🍔";
         break;
@@ -55,7 +52,7 @@ export class CategoryEmojiPipe implements PipeTransform {
         emoji = "🐶";
         break;
       default:
-        emoji = undefined;
+        emoji = "🤷🏽";
         break;
     }
     return emoji === undefined ? undefined : emoji;

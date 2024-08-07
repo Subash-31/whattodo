@@ -9,7 +9,7 @@ import { Task } from 'src/app/task';
 })
 export class TaskFormComponent {
 
-  categoryType: string[] = ["shopping", "health", "work", "bills", "cleaning", "other"];
+  categoryType: string[] = ["shopping", "health", "work", "bills", "cleaning",  "food", "exercise", "entertainment", "education", "travel", "social", "finance", "home", "pets","others"];
 
   @Input() currentTask?: Task;
 
