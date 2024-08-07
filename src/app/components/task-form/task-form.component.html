@@ -12,7 +12,7 @@
 
     <!-- TASK DESCRIPTION -->
     <div>
-        <label for="content">What task do you have to perform? ? *</label>
+        <label for="content">What task do you have to perform? *</label>
         <textarea class="input-content" id="content" type="text" for="content" name="content" placeholder="Exemple: Faire les courses" required
             [ngModel]="currentTask?.content" (ngModelChange)="updateContent($event)"></textarea>
     </div>
@@ -24,4 +24,10 @@
         <label class="urgent-label" for="urgent">The task is urgent ⚠️</label>
     </div>
 
+    <!-- DEADLINE -->
+    <div>
+        <label for="deadline">Deadline   :   </label>
+        <input type="date" id="deadline" name="deadline" [ngModel]="currentTask?.deadlines | date: 'yyyy-MM-dd'" (ngModelChange)="updateDeadline($event)">
+    </div>
 </form>
+
