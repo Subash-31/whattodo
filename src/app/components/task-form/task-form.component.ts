@@ -32,4 +32,13 @@ export class TaskFormComponent {
     this.updateTask.emit(this.currentTask);
   }
 
+  updateDeadline(value: string): void {
+    this.currentTask!.deadlines = value ? new Date(value) : null;
+    this.updateTask.emit(this.currentTask);
+  }
+
+  updateStatus(value: string): void {
+    this.currentTask!.status = value;
+    this.updateTask.emit(this.currentTask);
+  }
 }
