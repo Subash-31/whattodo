@@ -15,6 +15,14 @@ import { TaskModificationComponent } from './pages/task-modification/task-modifi
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { CategoryEmojiPipe } from './pipes/category-emoji.pipe';
 import { FilterComponent } from './components/filter/filter.component';
+import { LoginComponent } from './login/login.component';
+import { LoginnewComponent } from './loginnew/loginnew.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SignupComponent } from './signup/signup.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -28,13 +36,26 @@ import { FilterComponent } from './components/filter/filter.component';
     TaskModificationComponent,
     TaskFormComponent,
     CategoryEmojiPipe,
-    FilterComponent
+    FilterComponent,
+    LoginComponent,
+    LoginnewComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right'
+    })
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
