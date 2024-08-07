@@ -23,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SignupComponent } from './signup/signup.component';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatCardModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right'
     })
